@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Jogo Gomoku</title>
+		<meta charset="UTF-8">
+		<style type="text/css">
+			img{
+				width: 35px;
+				height: 35px;
+			}
+			div.groove{
+				border-style: groove;
+				border-width: 5px;
+				background-color: lightgray;
+			}
+			div.ridge{
+				border-style: ridge;
+				border-width: 5px;
+			}
+			button{
+				background-color: lightblue;
+				border-radius: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Jogo Gomoku</h1>
+		<button type="button" name="inciar" onclick= "iniciar()" >Iniciar</button>
+		<div class="container">
+		<p>
+			O Gomoku, também conhecido como Gobang, é um jogo de tabuleiro estratégico tradicionalmente jogado com peças de Go (peças negras e brancas) em um tabuleiro de Go ligeiramente modificado (15x15 interseções). No entanto, ao contrario deste, uma vez que as peças são colocadas não podem ser movidas ou retiradas do tabuleiro. No inicio do jogo, as negras começam, e os jogadores alternam na colocação de uma pedra da sua cor em uma interseção vazia. O vencedor é o primeiro jogador a obter uma linha ininterrupta de cinco pedras na horizontal, vertical ou diagonal. 
+		</p><br>
+		<div class="panel">
+			<div class="groove">Jogador da Vez</div>
+			<div class="ridge">
+				<img id="jogador0" style = "opacity=1" src="1.gif">
+				<img id="jogador1" style = "opacity=.3" src="2.gif">
+			</div>
+		</div> <br>
+		<table id="tabela">
+			<tr>
+				<td><img src="0.gif" id="11" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="12" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="13" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="14" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="15" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="16" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="17" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="18" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="19" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="110" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="111" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="112" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="113" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="114" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="115" onclick="clicado(this.id)"></td>
+			</tr>
+			<tr>
+				<td><img src="0.gif" id="21" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="22" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="23" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="24" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="25" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="26" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="27" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="28" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="29" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="210" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="211" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="212" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="213" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="214" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="215" onclick="clicado(this.id)"></td>
+			</tr>
+			<tr>
+				<td><img src="0.gif" id="31" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="32" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="33" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="34" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="35" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="36" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="37" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="38" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="39" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="310" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="311" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="312" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="313" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="314" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="315" onclick="clicado(this.id)"></td>
+			</tr>
+			<tr>
+				<td><img src="0.gif" id="41" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="42" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="43" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="44" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="45" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="46" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="47" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="48" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="49" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="410" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="411" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="412" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="413" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="414" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="415" onclick="clicado(this.id)"></td>
+			</tr>
+			<tr>
+				<td><img src="0.gif" id="51" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="52" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="53" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="54" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="55" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="56" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="57" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="58" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="59" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="510" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="511" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="512" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="513" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="514" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="515" onclick="clicado(this.id)"></td>
+			</tr>
+			<tr>
+				<td><img src="0.gif" id="61" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="62" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="63" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="64" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="65" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="66" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="67" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="68" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="69" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="610" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="611" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="612" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="613" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="614" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="615" onclick="clicado(this.id)"></td>
+			</tr>
+			<tr>
+				<td><img src="0.gif" id="71" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="72" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="73" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="74" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="75" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="76" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="77" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="78" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="79" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="710" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="711" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="712" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="713" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="714" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="715" onclick="clicado(this.id)"></td>
+			</tr>
+			<tr>
+				<td><img src="0.gif" id="81" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="82" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="83" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="84" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="85" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="86" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="87" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="88" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="89" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="810" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="811" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="812" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="813" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="814" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="815" onclick="clicado(this.id)"></td>
+			</tr>
+			<tr>
+				<td><img src="0.gif" id="91" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="92" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="93" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="94" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="95" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="96" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="97" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="98" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="99" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="910" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="911" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="912" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="913" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="914" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="915" onclick="clicado(this.id)"></td>
+			</tr>
+			<tr>
+				<td><img src="0.gif" id="101" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="102" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="103" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="104" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="105" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="106" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="107" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="108" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="109" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1010" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1011" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1012" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1013" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1014" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1015" onclick="clicado(this.id)"></td>
+			</tr>
+			<tr>
+				<td><img src="0.gif" id="111" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="112" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="113" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="114" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="115" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="116" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="117" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="118" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="119" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1110" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1111" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1112" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1113" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1114" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1115" onclick="clicado(this.id)"></td>
+			</tr>
+			<tr>
+				<td><img src="0.gif" id="121" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="122" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="123" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="124" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="125" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="126" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="127" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="128" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="129" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1210" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1211" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1212" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1213" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1214" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1215" onclick="clicado(this.id)"></td>
+			</tr>
+			<tr>
+				<td><img src="0.gif" id="131" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="132" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="133" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="134" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="135" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="136" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="137" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="138" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="139" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1310" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1311" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1312" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1313" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1314" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1315" onclick="clicado(this.id)"></td>
+			</tr>
+			<tr>
+				<td><img src="0.gif" id="141" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="142" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="143" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="144" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="145" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="146" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="147" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="148" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="149" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1410" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1411" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1412" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1413" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1414" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1415" onclick="clicado(this.id)"></td>
+			</tr>
+			<tr>
+				<td><img src="0.gif" id="151" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="152" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="153" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="154" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="155" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="156" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="157" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="158" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="159" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1510" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1511" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1512" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1513" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1514" onclick="clicado(this.id)"></td>
+				<td><img src="0.gif" id="1515" onclick="clicado(this.id)"></td>
+			</tr>
+		</table>
+		</div>
+		<script type="text/javascript" src="jogoGomoku.js"></script>
+	</body>
+</html>
